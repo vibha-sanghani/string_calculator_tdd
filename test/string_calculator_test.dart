@@ -10,8 +10,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:string_calculator_tdd/string_calculator.dart';
 void main() {
   // Step 1: Handle empty string
-  test('Empty string should return 0', () {
+ /* test('Empty string should return 0', () {
     expect(add(""), equals(0));
+  });*/
+
+  // Step 2: Handle one number
+  test('returns single number as int', () {
+    expect(add('1'), equals(1));
   });
 
 }

@@ -20,8 +20,13 @@ void main() {
   });*/
 
   // Step 3: Handle two comma-separated numbers
-  test('returns sum of two comma-separated numbers', () {
-    expect(add('5,5'), equals(10));
+  // test('returns sum of two comma-separated numbers', () {
+  //   expect(add('5,5'), equals(10));
+  // });
+
+  // Step 4: Handle any number of comma-separated values
+  test('returns sum of multiple comma-separated numbers', () {
+    expect(add('2,4,6,8,20'), equals(40));
   });
 
 }

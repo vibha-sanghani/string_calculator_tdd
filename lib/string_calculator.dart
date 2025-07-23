@@ -50,6 +50,7 @@
 // Step 7: Handle negative numbers with exception
 
 int add(String numbers) {
+  // Handle empty string
   if (numbers.isEmpty) return 0;
 
   String delimiter = ',';
@@ -59,13 +60,18 @@ int add(String numbers) {
     numbers = numbers.substring(delimiterLine.length + 1);
   }
 
+  // Replace newlines with default delimiter
   final cleaned = numbers.replaceAll('\n', delimiter);
+
+  // Parse numbers
   final numberList = cleaned.split(delimiter).map(int.parse).toList();
 
+  // Negative number check
   final negatives = numberList.where((n) => n < 0).toList();
   if (negatives.isNotEmpty) {
     throw Exception('negative numbers not allowed ${negatives.join(',')}');
   }
 
-  return numberList.reduce((a, b) => a + b);
+  // Ignore numbers > 1000
+  return numberList.where((n) => n <= 1000).fold(0, (a, b) => a + b);
 }

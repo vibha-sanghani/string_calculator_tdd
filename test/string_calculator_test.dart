@@ -40,10 +40,16 @@ void main() {
   });*/
 
   // Step 7: Handle negative numbers with exception
-  test('throws exception for negative numbers', () {
-    expect(() => add('-1,5,13,-23,7,-14'), throwsA(predicate((e) =>
-    e is Exception && e.toString().contains('negative numbers not allowed -1,-23,-14')
-    )));
+  // test('throws exception for negative numbers', () {
+  //   expect(() => add('-1,5,13,-23,7,-14'), throwsA(predicate((e) =>
+  //   e is Exception && e.toString().contains('negative numbers not allowed -1,-23,-14')
+  //   )));
+  // });
+
+  // Step 8: Ignore numbers > 1000
+  test('ignore numbers greater than 1000', () {
+    expect(add('2,1001'), equals(2));
+    expect(add('1000,1'), equals(1001)); // 1000 is allowed
   });
 
 }

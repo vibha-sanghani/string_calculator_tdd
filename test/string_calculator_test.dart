@@ -15,8 +15,13 @@ void main() {
   });*/
 
   // Step 2: Handle one number
-  test('returns single number as int', () {
+ /* test('returns single number as int', () {
     expect(add('1'), equals(1));
+  });*/
+
+  // Step 3: Handle two comma-separated numbers
+  test('returns sum of two comma-separated numbers', () {
+    expect(add('5,5'), equals(10));
   });
 
 }

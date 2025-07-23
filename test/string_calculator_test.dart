@@ -25,8 +25,12 @@ void main() {
   // });
 
   // Step 4: Handle any number of comma-separated values
-  test('returns sum of multiple comma-separated numbers', () {
+ /* test('returns sum of multiple comma-separated numbers', () {
     expect(add('2,4,6,8,20'), equals(40));
-  });
+  });*/
 
+  // Step 5: Handle newline (\n) as delimiter
+  test('handles new line between numbers', () {
+    expect(add('10\n20,30'), equals(60));
+  });
 }

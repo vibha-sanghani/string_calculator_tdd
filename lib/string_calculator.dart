@@ -1,4 +1,3 @@
-
 // Step 1: Handle empty string
 /*int add(String numbers) {
   if (numbers.isEmpty) return 0;
@@ -21,7 +20,14 @@
 }*/
 
 // Step 4: Handle any number of comma-separated values
-int add(String numbers) {
+/*int add(String numbers) {
   if (numbers.isEmpty) return 0;
   return numbers.split(',').map(int.parse).reduce((a, b) => a + b);
+}*/
+
+// Step 5: Handle newline (\n) as delimiter
+int add(String numbers) {
+  if (numbers.isEmpty) return 0;
+  final cleaned = numbers.replaceAll('\n', ',');
+  return cleaned.split(',').map(int.parse).reduce((a, b) => a + b);
 }

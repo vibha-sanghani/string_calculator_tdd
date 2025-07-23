@@ -30,7 +30,12 @@ void main() {
   });*/
 
   // Step 5: Handle newline (\n) as delimiter
-  test('handles new line between numbers', () {
+  /*test('handles new line between numbers', () {
     expect(add('10\n20,30'), equals(60));
+  });*/
+
+  // Step 6: Support custom delimiters
+  test('supports custom delimiter ;', () {
+    expect(add('//;\n50;50'), equals(100));
   });
 }

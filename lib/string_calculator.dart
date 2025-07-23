@@ -26,8 +26,23 @@
 }*/
 
 // Step 5: Handle newline (\n) as delimiter
-int add(String numbers) {
+/*int add(String numbers) {
   if (numbers.isEmpty) return 0;
   final cleaned = numbers.replaceAll('\n', ',');
   return cleaned.split(',').map(int.parse).reduce((a, b) => a + b);
+}*/
+
+// Step 6: Support custom delimiters
+int add(String numbers) {
+  if (numbers.isEmpty) return 0;
+
+  String delimiter = ',';
+  if (numbers.startsWith('//')) {
+    final delimiterLine = numbers.split('\n')[0];
+    delimiter = delimiterLine[2];
+    numbers = numbers.substring(delimiterLine.length + 1);
+  }
+
+  final cleaned = numbers.replaceAll('\n', delimiter);
+  return cleaned.split(delimiter).map(int.parse).reduce((a, b) => a + b);
 }
